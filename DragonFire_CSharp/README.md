@@ -21,53 +21,70 @@ Ein Pixel-Art-Drachenspiel in C# mit Windows Forms. Funktioniert auf jedem Windo
   - Highscore-System für jedes Level
   - Einfache Steuerung
 
-## 📥 Installation & Kompilierung
+## 🚀 Schnellstart (3 Schritte!)
 
-### Voraussetzungen
-- **Windows 7/8/10/11**
-- **.NET 6.0 SDK** (wird automatisch installiert, falls nicht vorhanden)
+### 1️⃣ Doppelklick auf `build_simple.bat`
+- Installiert automatisch .NET 6.0 (falls nicht vorhanden)
+- Kompiliert das Spiel
 
-### Methode 1: Einfache Kompilierung (Empfohlen)
-1. Doppelklick auf `build_exe.bat`
-2. Die EXE-Datei wird im Ordner `bin/Release/net6.0-windows/DragonFire.exe` erstellt
+### 2️⃣ Warten bis "EXE ERFOLGREICH ERSTELLT!" erscheint
 
-### Methode 2: Manuelle Kompilierung
-1. Öffnen Sie die Eingabeaufforderung (cmd) in diesem Ordner
-2. Führen Sie aus:
-   ```cmd
-   dotnet build DragonFire.csproj -c Release -o bin/Release
-   ```
-3. Die EXE-Datei findet sich in: `bin/Release/net6.0-windows/DragonFire.exe`
+### 3️⃣ EXE finden und starten
+Die EXE-Datei befindet sich in einem dieser Ordner:
+- **`./publish/DragonFire.exe`** (bevorzugt)
+- **`./DragonFire.exe`** (falls kopiert)
+- **`bin/Release/net6.0-windows/DragonFire.exe`** (alternativ)
 
-### Methode 3: Direktes Ausführen (ohne EXE)
-1. Öffnen Sie die Eingabeaufforderung (cmd) in diesem Ordner
-2. Führen Sie aus:
-   ```cmd
-   dotnet run
-   ```
+---
 
-## 🚀 Schnellstart
+## 📁 Wo ist die EXE-Datei?
 
-### Wenn .NET 6.0 bereits installiert ist:
+Nach erfolgreicher Kompilierung:
+
+| Methode | EXE-Pfad | Beschreibung |
+|---------|----------|--------------|
+| `build_simple.bat` | `./publish/DragonFire.exe` | Selbstständige EXE (empfohlen) |
+| `build_exe.bat` | `bin/Release/net6.0-windows/DragonFire.exe` | Standard-EXE |
+| Manuell | `bin/Release/net6.0-windows/DragonFire.exe` | Nach `dotnet build` |
+
+**💡 Tipp:** Die Batch-Dateien öffnen automatisch den Datei-Explorer und zeigen die EXE an!
+
+---
+
+## 📥 Alternative Installationsmethoden
+
+### Methode 1: Mit `build_simple.bat` (empfohlen)
 ```cmd
-:: 1. Projekt erstellen
-dotnet build DragonFire.csproj -c Release
-
-:: 2. EXE ausführen
-start bin/Release/net6.0-windows/DragonFire.exe
+:: Einfach Doppelklick auf build_simple.bat
+:: Die EXE wird in ./publish/ erstellt
 ```
 
-### Wenn .NET 6.0 nicht installiert ist:
-1. Doppelklick auf `build_exe.bat`
-2. Das Skript installiert .NET 6.0 automatisch
-3. Die EXE wird erstellt und kann ausgeführt werden
+### Methode 2: Mit `build_exe.bat`
+```cmd
+:: Doppelklick auf build_exe.bat
+:: Die EXE wird in bin/Release/net6.0-windows/ erstellt
+```
 
-## 📁 Dateistruktur
+### Methode 3: Manuell mit dotnet CLI
+```cmd
+:: 1. .NET 6.0 SDK installieren (falls nicht vorhanden)
+::    https://dotnet.microsoft.com/download/dotnet/6.0
 
-- `Program.cs` - Hauptspielcode
-- `DragonFire.csproj` - Projektdatei
-- `build_exe.bat` - Batch-Datei zur EXE-Erstellung
-- `README.md` - Diese Anleitung
+:: 2. Projekt erstellen
+cd DragonFire_CSharp
+dotnet publish -c Release -o .\publish --self-contained true
+
+:: 3. EXE starten
+start .\publish\DragonFire.exe
+```
+
+### Methode 4: Direktes Ausführen (ohne EXE)
+```cmd
+cd DragonFire_CSharp
+dotnet run
+```
+
+---
 
 ## 🎯 Level
 
@@ -76,31 +93,47 @@ start bin/Release/net6.0-windows/DragonFire.exe
 - **Level 3:** 7 Häuser - Schwer
 - **Level 4+:** Zufällige Level mit steigender Anzahl an Häusern
 
+---
+
 ## 💡 Tipps
 
 - Versuche, mehrere Häuser mit einem Schuss zu treffen
 - Bewege den Drachen strategisch, um bessere Winkel zu bekommen
 - Nutze die Level-Grenzen zu deinem Vorteil
 
+---
+
 ## 🔧 Problembehebung
 
-### Problem: .NET 6.0 SDK nicht gefunden
-**Lösung:**
-1. Installieren Sie .NET 6.0 SDK manuell von: [https://dotnet.microsoft.com/download/dotnet/6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
+### ❌ Problem: ".NET SDK nicht gefunden"
+**✅ Lösung:**
+1. Installieren Sie .NET 6.0 SDK von: [https://dotnet.microsoft.com/download/dotnet/6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
 2. Wählen Sie "Desktop development" während der Installation
 3. Starten Sie Ihren PC neu
+4. Führen Sie die Batch-Datei erneut aus
 
-### Problem: Kompilierungsfehler
-**Lösung:**
-1. Stellen Sie sicher, dass Sie die neueste Version von .NET 6.0 SDK haben
-2. Führen Sie `dotnet --list-sdks` aus, um installierte SDKs anzuzeigen
-3. Installieren Sie das fehlende SDK
+### ❌ Problem: "Kompilierung fehlgeschlagen"
+**✅ Lösung:**
+1. Führen Sie `dotnet --list-sdks` aus, um installierte SDKs anzuzeigen
+2. Installieren Sie .NET 6.0 SDK, falls nicht vorhanden
+3. Stellen Sie sicher, dass Sie die neueste Version haben
 
-### Problem: EXE-Datei wird nicht erstellt
-**Lösung:**
-1. Überprüfen Sie, ob der Ordner `bin/Release/net6.0-windows/` existiert
-2. Falls nicht, führen Sie `dotnet build DragonFire.csproj -c Release` manuell aus
-3. Überprüfen Sie die Fehlermeldungen
+### ❌ Problem: "EXE-Datei nicht gefunden"
+**✅ Lösung:**
+1. Suchen Sie nach `DragonFire.exe` in allen Unterordnern
+2. Die EXE könnte in einem dieser Pfade sein:
+   - `./publish/DragonFire.exe`
+   - `./DragonFire.exe`
+   - `bin/Release/net6.0-windows/DragonFire.exe`
+   - `bin/Release/net6.0/win-x64/publish/DragonFire.exe`
+
+### ❌ Problem: "Die Batch-Datei funktioniert nicht"
+**✅ Lösung:**
+1. Öffnen Sie die Eingabeaufforderung (cmd) manuell
+2. Navigieren Sie zum DragonFire_CSharp Ordner
+3. Führen Sie die Befehle aus der Batch-Datei manuell aus
+
+---
 
 ## 📜 Technische Details
 
@@ -109,6 +142,23 @@ start bin/Release/net6.0-windows/DragonFire.exe
 - **Auflösung:** 800x600 Pixel
 - **Pixel-Art-Skalierung:** 4x (jeder Pixel = 4x4 Bildschirmpixel)
 - **Zielplattform:** Windows x86/x64
+- **EXE-Größe:** ~5-10 MB (selbstständig)
+
+---
+
+## 📁 Dateien im Projekt
+
+```
+DragonFire_CSharp/
+├── Program.cs          # Hauptspielcode
+├── DragonFire.csproj   # Projektdatei
+├── build_simple.bat    # Einfache Batch-Datei (empfohlen)
+├── build_exe.bat       # Alternative Batch-Datei
+├── ANLEITUNG.txt       # Einfache Textanleitung
+└── README.md           # Diese Datei
+```
+
+---
 
 ## 📜 Lizenz
 
@@ -116,4 +166,6 @@ Dieses Spiel ist Open Source und kann frei verwendet, modifiziert und weitergege
 
 ---
 
-Viel Spaß beim Spielen! 🐉🔥
+## 🎉 Viel Spaß beim Spielen! 🐉🔥
+
+**Falls Sie Probleme haben, lesen Sie bitte die ANLEITUNG.txt Datei!**

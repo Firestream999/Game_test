@@ -1,0 +1,86 @@
+================================================================================
+DRAGON FIRE - EINFACHE ANLEITUNG
+================================================================================
+
+SCHNELLSTART (nur 3 Schritte):
+
+1. DOPPELKLICK auf "build_simple.bat"
+   - Das Skript installiert automatisch .NET 6.0 (falls nicht vorhanden)
+   - Dann wird das Spiel kompiliert
+
+2. WARTE bis die Meldung "EXE ERFOLGREICH ERSTELLT!" erscheint
+
+3. DIE EXE FINDET SICH IN EINEM DER FOLGENDEN ORDNER:
+   - .\publish\DragonFire.exe          (bevorzugt)
+   - .\DragonFire.exe                   (falls kopiert)
+   - bin\Release\net6.0-windows\DragonFire.exe
+
+================================================================================
+WAS TUN, WENN DIE EXE NICHT GEFUNDEN WIRD?
+================================================================================
+
+1. Schau in den Ordner "publish" - dort sollte die EXE sein
+2. Falls nicht, schau in "bin\Release\net6.0-windows\"
+3. Falls immer noch nicht, führe "build_exe.bat" aus (alternative Methode)
+
+================================================================================
+MANUELLE INSTALLATION (falls Batch-Dateien nicht funktionieren)
+================================================================================
+
+1. .NET 6.0 SDK installieren:
+   - Gehe zu: https://dotnet.microsoft.com/download/dotnet/6.0
+   - Lade "x64" Version herunter und installiere
+   - Wähle "Desktop development" während der Installation
+
+2. Eingabeaufforderung öffnen:
+   - Drücke Windows-Taste + R
+   - Tippe "cmd" und drücke Enter
+   - Navigiere zum DragonFire_CSharp Ordner:
+     cd Pfad\zum\DragonFire_CSharp
+
+3. Spiel kompilieren:
+   dotnet publish -c Release -o .\publish --self-contained true
+
+4. EXE starten:
+   .\publish\DragonFire.exe
+
+================================================================================
+FEHLERBEHEBUNG
+================================================================================
+
+PROBLEM: ".NET SDK nicht gefunden"
+LÖSUNG: Installiere .NET 6.0 SDK von https://dotnet.microsoft.com/download/dotnet/6.0
+
+PROBLEM: "Kompilierung fehlgeschlagen"
+LÖSUNG: 
+1. Stelle sicher, dass .NET 6.0 SDK installiert ist
+2. Führe "dotnet --list-sdks" aus, um zu prüfen
+3. Installiere das fehlende SDK
+
+PROBLEM: "EXE-Datei nicht gefunden"
+LÖSUNG: Suche nach "DragonFire.exe" in allen Unterordnern
+
+================================================================================
+SPIELSTEUERUNG
+================================================================================
+
+Pfeiltasten / WASD   - Drachen bewegen
+Leertaste           - Feuer speien
+R                   - Level neu starten
+ESC                 - Zum Menü
+ENTER               - Level starten / bestätigen
+1/2/3               - Level auswählen (im Menü)
+M                   - Zum Menü (nach Level abschließen)
+
+================================================================================
+ZIEL DES SPIELS
+================================================================================
+
+Verbrenne alle Häuser in jedem Level mit so wenigen Schüssen wie möglich!
+
+- Level 1: 3 Häuser (einfach)
+- Level 2: 5 Häuser (mittel)
+- Level 3: 7 Häuser (schwer)
+- Level 4+: Zufällige Level
+
+================================================================================
